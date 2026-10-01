@@ -1,0 +1,26 @@
+CUDA_VISIBLE_DEVICES=7 python train_vgg_pmsn.py -b 32 --epochs 200 -method PMSN -TET -T 4
+CUDA_VISIBLE_DEVICES=7 python train_vgg_pmsn.py -b 32 --epochs 200 -method PMSN -TET -T 10
+
+CUDA_VISIBLE_DEVICES=7 nohup python train_vgg_pmsn.py -b 32 --epochs 200 -method PMSN -TET -T 4 -opt SGD0.02 > pmsnbs32n4.out &
+CUDA_VISIBLE_DEVICES=7 nohup python train_vgg_pmsn.py -b 32 --epochs 200 -method PMSN -TET -T 10 -opt SGD0.02 > pmsnbs32n10.out &
+
+CUDA_VISIBLE_DEVICES=7 nohup python train_vgg_pmsn.py -b 32 --epochs 200 -method PMSN -TET -T 4 -opt SGD0.05 > pmsnbs32n4.out &
+CUDA_VISIBLE_DEVICES=7 nohup python train_vgg_pmsn.py -b 32 --epochs 200 -method PMSN -TET -T 10 -opt SGD0.05 > pmsnbs32n10.out &
+
+CUDA_VISIBLE_DEVICES=2 python train_vgg_pmsn_reg.py -b 32 --epochs 200 -method PMSN_reg -TET -T 4
+
+
+
+
+CUDA_VISIBLE_DEVICES=7 nohup python train_vgg_pmsn.py -b 32 --epochs 200 -method PMSN -TET -T 4 > pmsnbs32n4.out &
+CUDA_VISIBLE_DEVICES=7 nohup python train_vgg_pmsn.py -b 32 --epochs 200 -method PMSN -TET -T 10 > pmsnbs32n10.out &
+
+CUDA_VISIBLE_DEVICES=6 nohup python train_vgg_pmsn_reg.py -b 32 --epochs 200 -method PMSN -TET -T 4 > pmsnbs32n4_reg.out &
+CUDA_VISIBLE_DEVICES=6 nohup python train_vgg_pmsn_reg.py -b 32 --epochs 200 -method PMSN -TET -T 10 > pmsnbs32n10_reg.out &
+
+CUDA_VISIBLE_DEVICES=6 nohup python train_vgg_pmsn_reg.py -b 32 --epochs 200 -method PMSN -TET -T 4 -opt SGD0.0001 -resume /zjh/ssj/Reg_ipmsn/cifar10dvs/logs/T4_opt_SGD0.1_tau_0.25_method_PMSN_b_32_TET_1gpu-84.00/checkpoint_max.pth > pmsnbs32n4_reg.out &
+CUDA_VISIBLE_DEVICES=6 nohup python train_vgg_pmsn_reg.py -b 32 --epochs 200 -method PMSN -TET -T 10 -opt SGD0.0001 -resume /zjh/ssj/Reg_ipmsn/cifar10dvs/logs/T10_opt_SGD0.05_tau_0.25_method_PMSN_b_32_TET_1gpu-87.10/checkpoint_max.pth > pmsnbs32n10_reg.out &
+
+CUDA_VISIBLE_DEVICES=6 nohup python train_vgg_pmsn_reg.py -b 32 --epochs 200 -method PMSN -TET -T 4 -opt SGD0.00001 -resume /zjh/ssj/Reg_ipmsn/cifar10dvs/logs/T4_opt_SGD0.1_tau_0.25_method_PMSN_b_32_TET_1gpu-84.00/checkpoint_max.pth > pmsnbs32n4_reg.out &
+CUDA_VISIBLE_DEVICES=6 nohup python train_vgg_pmsn_reg.py -b 32 --epochs 200 -method PMSN -TET -T 10 -opt SGD0.001 -resume /zjh/ssj/Reg_ipmsn/cifar10dvs/logs/T10_opt_SGD0.05_tau_0.25_method_PMSN_b_32_TET_1gpu-87.10/checkpoint_max.pth > pmsnbs32n10_reg.out &
+CUDA_VISIBLE_DEVICES=7 nohup python train_vgg_pmsn_reg-resume.py -b 32 --epochs 500 -method PMSN -TET -T 10 -opt SGD0.00001 -resume /zjh/ssj/Reg_ipmsn/cifar10dvs/logs/T10_opt_SGD0.05_tau_0.25_method_PMSN_b_32_TET_1gpu-87.10/checkpoint_max.pth > pmsnbs32n10_reg1.out &
